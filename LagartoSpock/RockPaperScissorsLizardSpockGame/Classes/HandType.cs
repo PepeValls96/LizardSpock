@@ -15,7 +15,10 @@ namespace RockPaperScissorsLizardSpockGame.Classes
             Scissors = new HandType();
             Stone = new HandType();
         }
+        protected HandType()
+        {
 
+        }
         public static HandType None { get; private set; }
         public static HandType Paper { get; private set; }
         public static HandType Scissors { get; private set; }

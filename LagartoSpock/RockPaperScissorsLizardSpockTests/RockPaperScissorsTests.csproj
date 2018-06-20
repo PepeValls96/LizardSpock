@@ -56,10 +56,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RockPaperScissorsGame\RockPaperScissorsGame.csproj">
-      <Project>{ec73dd82-9965-4d35-9e81-9ade95774dfe}</Project>
-      <Name>RockPaperScissorsGame</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RockPaperScissorsLizardSpockGame\RockPaperScissorsLizardSpockGame.csproj">
       <Project>{e300a7de-95e8-4251-8f6c-d10c9ee75251}</Project>
       <Name>RockPaperScissorsLizardSpockGame</Name>

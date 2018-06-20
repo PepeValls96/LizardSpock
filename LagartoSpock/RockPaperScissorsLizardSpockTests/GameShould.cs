@@ -4,6 +4,7 @@
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
     using RockPaperScissorsLizardSpockGame;
     using RockPaperScissorsLizardSpockGame.Classes;
+    using RockPaperScissorsLizardSpockGame.Interfaces;
     using RockPaperScissorsLizardSpockGame.PlayGame;
 
     // TODO: Add or remove any namespace here
@@ -11,12 +12,12 @@
     [TestClass]
 	public class RockPaperScissorsGameShould
 	{
-		internal virtual IRockPaperScissorsGame CreateGame()
-		{
-			return new RockPaperScissorsGame();
-		}
+        internal virtual IRockPaperScissorsGame CreateGame()
+        {
+            return new RockPaperScissorsGame();
+        }
 
-		[TestMethod]
+        [TestMethod]
 		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		public void ThrowArgumentOutOfRangeException_When_AnyArgumentIsNone()
 		{
@@ -78,13 +79,13 @@
 
             Assert.Fail();
         }
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [TestMethod]
         public void ThrowArgumentOutOfRangeException_When_BothArgumentAreEquals()
         {
             IRockPaperScissorsGame game = CreateGame();
-            game.Play(HandType.None, HandType.None);
+            HandType winnerHand = game.Play(HandType.Stone, HandType.Stone);
 
-            Assert.Fail();
+            Assert.AreEqual(HandType.None, winnerHand); ;
         }
     }
 }

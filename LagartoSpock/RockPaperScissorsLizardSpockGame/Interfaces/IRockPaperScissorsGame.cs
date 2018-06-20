@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RockPaperScissorsLizardSpockGame
+namespace RockPaperScissorsLizardSpockGame.Interfaces
 {
     public interface IRockPaperScissorsGame
     {

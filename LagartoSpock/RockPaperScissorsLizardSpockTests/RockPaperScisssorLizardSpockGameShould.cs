@@ -1,8 +1,8 @@
 ﻿namespace RockPaperScissorsTests
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using RockPaperScissorsLizardSpockGame;
     using RockPaperScissorsLizardSpockGame.Classes;
+    using RockPaperScissorsLizardSpockGame.Interfaces;
     using RockPaperScissorsLizardSpockGame.PlayGame;
 
     // TODO: Add or remove any namespace here
@@ -10,12 +10,12 @@
     [TestClass]
 	public class RockPaperScisssorLizardSpockGameShould : RockPaperScissorsGameShould
 	{
-		internal override IRockPaperScissorsGame CreateGame()
-		{
+        internal override IRockPaperScissorsGame CreateGame()
+        {
             return new WithLizardSpockGame();
         }
 
-		[TestMethod]
+        [TestMethod]
 		public void ReturnScissors_When_PassScissorsAndLizardAsParameters()
 		{
 			IRockPaperScissorsGame game = CreateGame();
@@ -29,7 +29,7 @@
 		[TestMethod]
 		public void ReturnLizard_When_PassSpockAndLizardAsParameters()
 		{
-			IRockPaperScissorsGame game = CreateGame();
+            IRockPaperScissorsGame game = this.CreateGame();
 
 			HandType expectedWinnerHand = ExtendedHandType.Lizard;
 			var winnerHand = game.Play(ExtendedHandType.Spock, ExtendedHandType.Lizard);

@@ -1,4 +1,5 @@
 ﻿using RockPaperScissorsLizardSpockGame.Classes;
+using RockPaperScissorsLizardSpockGame.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,43 +19,32 @@ namespace RockPaperScissorsLizardSpockGame.PlayGame
 
         public HandType GetWinHand(HandType hand1, HandType hand2)
         {
-            HandType result = new HandType();
-
+            HandType result = hand2;
 
             if (winCombinations[hand1].Contains(hand2))
             {
                 result = hand1;
             }
-            else
-            {
-                result = hand2;
-            }
-
-
+            
             return result;
         }
         public HandType Play(HandType hand1, HandType hand2)
         {
             HandType result = HandType.None;
-            if (winCombinations.Keys.Contains(hand1) && winCombinations.Keys.Contains(hand2))
-            {
-                if (hand1 == HandType.None || hand2 == HandType.None)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                else if (hand1 == hand2)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                else
-                {
-                    result = GetWinHand(hand1, hand2);
-                }
-            }
-            else
+
+            if (hand1 == HandType.None || hand2 == HandType.None)
             {
                 throw new ArgumentOutOfRangeException();
             }
+            if (hand1 == hand2)
+            {
+                result = HandType.None; 
+            }
+            else if(winCombinations.Keys.Contains(hand1) && winCombinations.Keys.Contains(hand2)) 
+            {
+                result = GetWinHand(hand1, hand2);
+            }
+
             return result;
         }
         
